@@ -1,19 +1,35 @@
 import React, { Component } from "react";
 import Game from "./components/Game";
-import wordRush from "./new.jpg";
+import "./App.css";
 
 class App extends Component {
+  renderParticles() {
+    const particles = [];
+    for (let i = 0; i < 20; i++) {
+      const style = {
+        left: `${Math.random() * 100}%`,
+        animationDuration: `${6 + Math.random() * 8}s`,
+        animationDelay: `${Math.random() * 6}s`,
+        width: `${2 + Math.random() * 3}px`,
+        height: `${2 + Math.random() * 3}px`,
+        opacity: 0.2 + Math.random() * 0.3,
+      };
+      particles.push(<div key={i} className="particle" style={style} />);
+    }
+    return particles;
+  }
+
   render() {
     return (
-      <div
-        className="App vw-100 vh-100 pa1"
-        style={{
-          backgroundImage: `url(${wordRush})`,
-          backgroundPosition: "center"
-        }}
-      >
-        <header className="tc pv4 pv5-ns fw7 f2 navy"> WORD RUSH </header>
-        <Game className="bg-white" />
+      <div className="app">
+        <div className="particles">{this.renderParticles()}</div>
+
+        <header className="header">
+          <h1>WORD RUSH</h1>
+          <div className="header-subtitle">Unscramble the letters</div>
+        </header>
+
+        <Game />
       </div>
     );
   }

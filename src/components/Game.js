@@ -1,656 +1,314 @@
 import React, { Component } from 'react';
 import Words from './Words';
-import swal from 'sweetalert';
+import wordArr from '../data/words.json';
 
-const wordArr = [
-["able",
-"acid",
-"aged",
-"also",
-"area",
-"army",
-"away",
-"baby",
-"back",
-"ball",
-"band",
-"bank",
-"base",
-"bath",
-"bear",
-"beat",
-"been",
-"beer",
-"bell",
-"belt",
-"best",
-"bill",
-"bird",
-"blow",
-"blue",
-"boat",
-"body",
-"bomb",
-"bond",
-"bone",
-"book",
-"boom",
-"born",
-"boss",
-"both",
-"bowl",
-"bulk",
-"burn",
-"bush",
-"busy",
-"call",
-"calm",
-"came",
-"camp",
-"card",
-"care",
-"case",
-"cash",
-"cast",
-"cell",
-"chat",
-"chip",
-"city",
-"club",
-"coal",
-"coat",
-"code",
-"cold",
-"come",
-"cook",
-"cool",
-"cope",
-"copy",
-"CORE",
-"cost",
-"crew",
-"crop",
-"dark",
-"data",
-"date",
-"dawn",
-"days",
-"dead",
-"deal",
-"dean",
-"dear",
-"debt",
-"deep",
-"deny",
-"desk",
-"dial",
-"diet",
-"disc",
-"disk",
-"does",
-"done",
-"door",
-"dose",
-"down",
-"draw",
-"drew",
-"drop",
-"drug",
-"dual",
-"duke",
-"dust",
-"duty",
-"each",
-"earn",
-"ease",
-"east"],
-[
-"above",
-"abuse",
-"actor",
-"acute",
-"admit",
-"adopt",
-"adult",
-"after",
-"again",
-"agent",
-"agree",
-"ahead",
-"alarm",
-"album",
-"alert",
-"alike",
-"alive",
-"allow",
-"alone",
-"along",
-"alter",
-"among",
-"anger",
-"Angle",
-"angry",
-"apart",
-"apple",
-"apply",
-"arena",
-"argue",
-"arise",
-"array",
-"aside",
-"asset",
-"audio",
-"audit",
-"avoid",
-"award",
-"aware",
-"badly",
-"baker",
-"bases",
-"basic",
-"basis",
-"beach",
-"began",
-"begin",
-"begun",
-"being",
-"below",
-"bench",
-"billy",
-"birth",
-"black",
-"blame",
-"blind",
-"block",
-"blood",
-"board",
-"boost",
-"booth",
-"bound",
-"brain",
-"brand",
-"bread",
-"break",
-"breed",
-"brief",
-"bring",
-"broad",
-"broke",
-"brown",
-"build",
-"built",
-"buyer",
-"cable",
-"calif",
-"carry",
-"catch",
-"cause",
-"chain",
-"chair",
-"chart",
-"chase",
-"cheap",
-"check",
-"chest",
-"chief",
-"child",
-"china",
-"chose",
-"civil",
-"claim",
-"class",
-"clean",
-"clear",
-"click",
-"clock",
-"close",
-"coach",
-"coast",
-"could",
-"count",
-"court",
-"cover",
-"craft",
-"crash",
-"cream",
-"crime",
-"cross",
-"crowd",
-"crown",
-"curve",
-"cycle",
-"daily",
-"dance",
-"dated",
-"dealt",
-"death",
-"debut",
-"delay",
-"depth",
-"doing",
-"doubt",
-"dozen",
-"draft",
-"drama",
-"drawn",
-"dream",
-"dress",
-"drill",
-"drink",
-"drive",
-"drove",
-"dying",
-"eager",
-"early",
-"earth",
-"eight",
-"elite",
-"empty",
-"enemy",
-"enjoy",
-"enter",
-"entry",
-"equal",
-"error",
-"event",
-"every",
-"exact",
-"exist",
-"extra",
-"faith",
-"false",
-"fault",
-"fiber",
-"field",
-"fifth",
-"fifty",
-"fight",
-"final",
-"first",
-"fixed",
-"flash",
-"fleet",
-"floor",
-"fluid",
-"focus",
-"force",
-"forth",
-"forty",
-"forum",
-"found",
-"frame",
-"frank",
-"fraud",
-"fresh",
-"front",
-"fruit",
-"fully",
-"funny",
-"giant",
-"given",
-"glass",
-"globe",
-"going",
-"grace",
-"grade",
-"grand",
-"grant",
-"grass",
-"great",
-"green",
-"gross",
-"group",
-"grown",
-"guard",
-"guess",
-"guest",
-"guide",
-"happy",
-"harry",
-"heart",
-"heavy",
-"hence",
-"henry",
-"horse",
-"hotel",
-"house",
-"human",
-"ideal",
-"image",
-"index",
-"inner",
-"input",
-"issue",
-"japan",
-"jimmy",
-"joint",
-"jones",
-"judge",
-"known",
-"label",
-"large",
-"laser",
-"later",
-"laugh",
-"layer",
-"learn",
-"lease",
-"least",
-"leave",
-"legal",
-"level",
-"lewis",
-"light",
-"limit",
-"links",
-"lives",
-"local",
-"logic",
-"loose",
-"lower",
-"lucky",
-"lunch",
-"lying",
-"magic",
-"major",
-"maker",
-"march",
-"maria",
-"match",
-"maybe",
-"mayor",
-"meant",
-"media",
-"metal",
-"might",
-"minor",
-"minus",
-"mixed",
-"model",
-"money",
-"month",
-"moral",
-"motor",
-"mount",
-"mouse",
-"mouth",
-"movie",
-"music",
-"needs",
-"never",
-"newly",
-"night",
-"noise",
-"north",
-"noted",
-"novel",
-"nurse",
-"occur",
-"ocean",
-"offer",
-"often",
-"order",
-"other",
-"ought",
-"paint",
-"panel",
-"paper",
-"party",
-"peace"
-],
-["abroad",
-"accept",
-"access",
-"across",
-"acting",
-"action",
-"active",
-"actual",
-"advice",
-"advise",
-"affect",
-"afford",
-"afraid",
-"agency",
-"agenda",
-"almost",
-"always",
-"amount",
-"animal",
-"annual",
-"answer",
-"anyone",
-"anyway",
-"appeal",
-"appear",
-"around",
-"arrive",
-"artist",
-"aspect",
-"assess",
-"assist",
-"assume",
-"attack",
-"attend",
-"august",
-"author",
-"avenue",
-"backed",
-"barely",
-"battle",
-"beauty",
-"became",
-"become",
-"before",
-"behalf",
-"behind",
-"belief",
-"belong",
-"berlin",
-"better",
-"beyond",
-"bishop",
-"border",
-"bottle",
-"bottom",
-"bought",
-"branch",
-"breath",
-"bridge",
-"bright",
-"broken",
-"budget",
-"burden",
-"bureau",
-"button",
-"camera",
-"cancer",
-"cannot",
-"carbon",
-"career",
-"castle",
-"casual",
-"caught",
-"center",
-"centre",
-"chance",
-"change",
-"charge"],
-["ability",
-"absence",
-"academy",
-"account",
-"accused",
-"achieve",
-"acquire",
-"address",
-"advance",
-"adverse",
-"advised",
-"adviser",
-"against",
-"airline",
-"airport",
-"alcohol",
-"alleged",
-"already",
-"analyst",
-"ancient",
-"another",
-"anxiety",
-"anxious",
-"anybody",
-"applied",
-"arrange",
-"arrival",
-"article",
-"assault",
-"assumed",
-"assured",
-"attempt",
-"attract",
-"auction",
-"average",
-"backing",
-"balance",
-"banking",
-"barrier",
-"battery",
-"bearing",
-"beating",
-"because",
-"bedroom",
-"believe",
-"beneath",
-"benefit",
-"besides",
-"between",
-"billion",
-"binding",
-"brother",
-"brought",
-"burning",
-"cabinet",
-"caliber",
-"calling",
-"capable",
-"capital",
-"captain",
-"caption",
-"capture",
-"careful",
-"carrier",
-"caution",
-"ceiling",
-"central",
-"centric",
-"century",
-"certain",
-"chamber",
-"channel",
-"chapter",
-"charity"]
-];
+const WORDS_PER_LEVEL = 5;
+const INITIAL_TIME = 30;
+const HIGH_SCORE_KEY = 'wordRushHighScore';
+
+function getHighScore() {
+  try {
+    return parseInt(localStorage.getItem(HIGH_SCORE_KEY), 10) || 0;
+  } catch (e) {
+    return 0;
+  }
+}
+
+function saveHighScore(score) {
+  try {
+    const current = getHighScore();
+    if (score > current) {
+      localStorage.setItem(HIGH_SCORE_KEY, score);
+      return true;
+    }
+  } catch (e) { /* localStorage unavailable */ }
+  return false;
+}
 
 class Game extends Component {
   state = {
-    level: 0,
+    level: 1,
     score: 0,
-    currentIndex: -1,
+    currentIndex: 0,
     shuffledWords: [],
-    timer: 30,
+    timer: INITIAL_TIME,
+    maxTimer: INITIAL_TIME,
     win: false,
+    gameOver: false,
     currentWord: '',
-    levelChange: false
-  }
+    levelChange: false,
+    wordsInLevel: 0,
+    prevScore: 0,
+    highScore: getHighScore(),
+    isNewHighScore: false,
+    transitioning: false,
+  };
+
+  timerInterval = null;
 
   componentDidMount() {
     const shuffledArr = this.shuffle(wordArr[0]);
     const current = shuffledArr[0].toUpperCase();
-    this.setState({shuffledWords: shuffledArr, currentIndex: 0, currentWord: current, level: 1});
-    setInterval(this.reduceTimer, 1000)
+    this.setState({ shuffledWords: shuffledArr, currentWord: current });
+    this.startTimer();
   }
+
+  componentWillUnmount() {
+    this.clearTimer();
+  }
+
+  startTimer = () => {
+    this.clearTimer();
+    this.timerInterval = setInterval(this.reduceTimer, 1000);
+  };
+
+  clearTimer = () => {
+    if (this.timerInterval) {
+      clearInterval(this.timerInterval);
+      this.timerInterval = null;
+    }
+  };
 
   reduceTimer = () => {
     this.setState(prevState => {
-      return {timer: prevState.timer - 1}
+      if (prevState.timer <= 1) {
+        this.clearTimer();
+        const isNew = saveHighScore(prevState.score);
+        return {
+          timer: 0,
+          gameOver: true,
+          isNewHighScore: isNew,
+          highScore: Math.max(prevState.highScore, prevState.score),
+        };
+      }
+      return { timer: prevState.timer - 1 };
     });
-  }
+  };
 
   shuffle = (arr) => {
-    const arra1 = [...arr]
-    let ctr = arra1.length, temp, index;
-    while (ctr > 0) {
-        index = Math.floor(Math.random() * ctr);
-        ctr--;
-        temp = arra1[ctr];
-        arra1[ctr] = arra1[index];
-        arra1[index] = temp;
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
     }
-    return arra1;
-  }
+    return copy;
+  };
 
   nextWord = () => {
-    if ((this.state.currentIndex + 1) === this.state.shuffledWords.length) {
-      this.setState({win: true});
-    } else {
-      if (this.state.currentIndex === 4 && this.state.level !== 4) {
-        const shuffledArr = this.shuffle(wordArr[this.state.level]);
-        const current = shuffledArr[0].toUpperCase();
-        const newLevel = this.state.level + 1;
-        const timeLeft = this.state.timer + 10 * this.state.level;
-        const newScore = this.state.score + 1 * this.state.level;
-        // swal(`You Crossed Level ${this.state.level}!`, "Congratulations!", "success").then(() => {
-        //   this.setState({shuffledWords: shuffledArr, currentIndex: 0, currentWord: current, level: newLevel, timer: timeLeft, score: newScore});
-        // })
-        this.setState({shuffledWords: shuffledArr, currentIndex: 0, currentWord: current, level: newLevel, timer: timeLeft, score: newScore, levelChange: true});
-        setTimeout(this.levelHandle, 500);
-      } else {
-        const index = this.state.currentIndex + 1;
-        const timeLeft = this.state.timer + 2;
-        const newScore = this.state.score + 1 * this.state.level;
-        const current = this.state.shuffledWords[index].toUpperCase();
-        this.setState({currentIndex: index, timer: timeLeft, currentWord: current, score: newScore});
-      }
-    }
-  }
+    const { currentIndex, shuffledWords, level, score, timer, wordsInLevel } = this.state;
 
-  levelHandle = () => {
-    this.setState({levelChange: false});
-  }
+    if (currentIndex + 1 >= shuffledWords.length && level >= 4) {
+      this.clearTimer();
+      const isNew = saveHighScore(score + 1 * level);
+      this.setState({
+        win: true,
+        score: score + 1 * level,
+        isNewHighScore: isNew,
+        highScore: Math.max(this.state.highScore, score + 1 * level),
+      });
+      return;
+    }
+
+    const nextWordsInLevel = wordsInLevel + 1;
+
+    this.setState({ transitioning: true });
+
+    setTimeout(() => {
+      if (nextWordsInLevel >= WORDS_PER_LEVEL && level < 4) {
+        const shuffledArr = this.shuffle(wordArr[level]);
+        const current = shuffledArr[0].toUpperCase();
+        const newLevel = level + 1;
+        const timeBonus = 10 * level;
+        const scoreBonus = 1 * level;
+        const newTime = timer + timeBonus;
+
+        this.setState({
+          shuffledWords: shuffledArr,
+          currentIndex: 0,
+          currentWord: current,
+          level: newLevel,
+          timer: newTime,
+          maxTimer: newTime,
+          prevScore: score,
+          score: score + scoreBonus,
+          levelChange: true,
+          wordsInLevel: 0,
+          transitioning: false,
+        });
+
+        setTimeout(() => this.setState({ levelChange: false }), 1500);
+      } else {
+        const nextIndex = currentIndex + 1;
+        const scoreBonus = 1 * level;
+        const current = shuffledWords[nextIndex].toUpperCase();
+        const newTime = timer + 2;
+
+        this.setState({
+          currentIndex: nextIndex,
+          timer: newTime,
+          maxTimer: Math.max(this.state.maxTimer, newTime),
+          currentWord: current,
+          prevScore: score,
+          score: score + scoreBonus,
+          wordsInLevel: nextWordsInLevel,
+          transitioning: false,
+        });
+      }
+    }, 300);
+  };
+
+  playAgain = () => {
+    const shuffledArr = this.shuffle(wordArr[0]);
+    const current = shuffledArr[0].toUpperCase();
+    this.setState({
+      level: 1,
+      score: 0,
+      prevScore: 0,
+      currentIndex: 0,
+      shuffledWords: shuffledArr,
+      timer: INITIAL_TIME,
+      maxTimer: INITIAL_TIME,
+      win: false,
+      gameOver: false,
+      currentWord: current,
+      levelChange: false,
+      wordsInLevel: 0,
+      isNewHighScore: false,
+      transitioning: false,
+      highScore: getHighScore(),
+    });
+    this.startTimer();
+  };
 
   render() {
-    let action = (
-      <div className="white"> 
-        <p className="tc f3"> Time Left : &nbsp; 
-          <span className={`${this.state.timer < 10 ? 'red' : ''}`}>{this.state.timer}</span> 
-        </p>
-        <p className="tc f3"> Level: {this.state.level} </p> 
-        <p className="tc f3"> Score: {this.state.score} </p> 
-        <Words word={this.state.currentWord} next = {this.nextWord}/> 
-      </div>
+    const {
+      timer, maxTimer, level, score, prevScore,
+      gameOver, win, levelChange, currentWord,
+      wordsInLevel, highScore, isNewHighScore, transitioning,
+    } = this.state;
+
+    const scorePop = score !== prevScore ? 'score-pop' : '';
+    const timerPercent = maxTimer > 0 ? (timer / maxTimer) * 100 : 0;
+    const timerDanger = timer < 10;
+    const timerCritical = timer < 5;
+
+    // ===== WIN SCREEN =====
+    if (win) {
+      return (
+        <div className="game-container">
+          <div className="win-screen">
+            <div className="win-emoji"><span role="img" aria-label="trophy">🏆</span></div>
+            <div className="win-title">YOU WIN!</div>
+            <div className="game-over-score">
+              <span className="score-number">{score}</span>
+              <div className="score-label">Final Score</div>
+            </div>
+            {isNewHighScore && (
+              <div className="new-high-score">
+                <span role="img" aria-label="star">⭐</span> New High Score!
+              </div>
+            )}
+            <div className="high-score-display">Best: {highScore}</div>
+            <button className="play-again-btn" onClick={this.playAgain}>
+              Play Again
+            </button>
+          </div>
+        </div>
       );
-
-    if (this.state.timer <= 0) {
-      action = (<div className="tc f3 white"> <p className="pa2"> Game Over !!!! </p> <p> Your Score is <span className="red fw7">{this.state.score} </span> </p> <p> Correct Word is : <span className="red fw7">{this.state.currentWord}</span></p></div>)
     }
 
-    if (this.state.win) {
-      action = (<div> <p> You Win !!! </p> <p> Your score is {this.state.score} </p> </div>)
+    // ===== GAME OVER SCREEN =====
+    if (gameOver) {
+      return (
+        <div className="game-container">
+          <div className="game-over">
+            <div className="game-over-title">GAME OVER</div>
+            <div className="game-over-score">
+              <span className="score-number">{score}</span>
+              <div className="score-label">Your Score</div>
+            </div>
+            {isNewHighScore && (
+              <div className="new-high-score">
+                <span role="img" aria-label="star">⭐</span> New High Score!
+              </div>
+            )}
+            <div className="high-score-display">Best: {highScore}</div>
+            <div className="game-over-word">
+              The word was: <span>{currentWord}</span>
+            </div>
+            <button className="play-again-btn" onClick={this.playAgain}>
+              Play Again
+            </button>
+          </div>
+        </div>
+      );
     }
 
-    if (this.state.levelChange) {
-      action = (<div className = "white tc f3"> <p> Cogratulations !!! </p> <p> You Crossed Level {this.state.level - 1} </p></div>);
-    } 
-
+    // ===== ACTIVE GAME =====
     return (
+      <div className="game-container">
+        {levelChange && (
+          <div className="level-up-overlay">
+            <div className="level-up-badge">Level Complete</div>
+            <div className="level-up-text">Level {level}!</div>
+            <div className="level-up-stars"><span role="img" aria-label="celebration">✨ 🚀 ✨</span></div>
+          </div>
+        )}
 
-      <div className = "v-mid bg-black o-80 pv1 w-40-l w-80 ml-auto mr-auto">
-        <div> {action} </div>
+        <div className="stats-bar">
+          <div className="stat-card">
+            <span className="stat-label">Time</span>
+            <span className={`stat-value timer ${timerDanger ? 'danger' : ''}`}>
+              {timer}
+            </span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-label">Level</span>
+            <span className="stat-value level">{level}</span>
+          </div>
+          <div className="stat-card">
+            <span className="stat-label">Score</span>
+            <span className={`stat-value score ${scorePop}`} key={score}>
+              {score}
+            </span>
+          </div>
+          <div className="stat-card stat-card-small">
+            <span className="stat-label">Best</span>
+            <span className="stat-value high">{highScore}</span>
+          </div>
+        </div>
+
+        {/* Timer bar */}
+        <div className="timer-bar-container">
+          <div
+            className={`timer-bar-fill ${timerDanger ? 'danger' : ''} ${timerCritical ? 'critical' : ''}`}
+            style={{ width: `${timerPercent}%` }}
+          />
+        </div>
+
+        {/* Word count + level progress */}
+        <div className="word-counter">
+          <span className="word-counter-text">
+            Word {wordsInLevel + 1} of {WORDS_PER_LEVEL}
+          </span>
+          <div className="level-progress-dots">
+            {Array.from({ length: WORDS_PER_LEVEL }).map((_, i) => (
+              <div
+                key={i}
+                className={`progress-dot ${i < wordsInLevel ? 'done' : ''} ${i === wordsInLevel ? 'current' : ''}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {!levelChange && (
+          <div className={`words-wrapper ${transitioning ? 'word-exit' : 'word-enter'}`}>
+            <Words word={currentWord} next={this.nextWord} />
+          </div>
+        )}
       </div>
-    )
+    );
   }
-
 }
 
 export default Game;

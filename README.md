@@ -1,68 +1,60 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Word Rush
 
-## Available Scripts
+A fast-paced word unscrambling game built with React. Race against the clock to unscramble words across 4 increasingly difficult levels!
 
-In the project directory, you can run:
+**[Play Now](https://unnati396.github.io/word-rush/)**
 
-### `npm start`
+## How to Play
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Scrambled letters appear on screen — click or type to form the correct word
+2. Each correct word adds **+2 seconds** to your timer
+3. Solve **5 words** to advance to the next level (longer words, bigger bonuses)
+4. The game ends when the timer hits zero — try to beat your high score!
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Levels
 
-### `npm test`
+| Level | Word Length | Time Bonus on Level Up |
+|-------|-----------|----------------------|
+| 1     | 4 letters | —                    |
+| 2     | 5 letters | +10s                 |
+| 3     | 6 letters | +20s                 |
+| 4     | 7 letters | +30s                 |
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+- **Keyboard support** — type letters directly or click tiles
+- **High score persistence** — best score saved locally
+- **Animated timer bar** — color shifts from teal → orange → pulsing red as time runs low
+- **Word progress tracker** — dots and counter show progress within each level
+- **Smooth transitions** — animated word swaps, tile entries, and level-up overlays
+- **Fully responsive** — works on phones, tablets, and desktop (including landscape)
+- **PWA ready** — installable as an app, works offline after first load
+- **Accessibility** — keyboard navigable, reduced motion support, ARIA labels
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tech Stack
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+- React 16.8 (class components)
+- CSS3 animations & transitions
+- localStorage for high scores
+- Service Worker for offline support
+- Google Fonts (Orbitron + Inter)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Development
 
-### `npm run eject`
+```bash
+# Install dependencies
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Start dev server
+npm start
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Build for production
+npm run build
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# Deploy to GitHub Pages
+npm run deploy
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+MIT
