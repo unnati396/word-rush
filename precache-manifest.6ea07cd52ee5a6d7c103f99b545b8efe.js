@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "0180e16f75c0e84a8ff8",
+    "revision": "fce5e61539906212057e",
     "url": "/word-rush/static/css/main.3309d1d4.chunk.css"
   },
   {
-    "revision": "0180e16f75c0e84a8ff8",
-    "url": "/word-rush/static/js/main.0180e16f.chunk.js"
+    "revision": "fce5e61539906212057e",
+    "url": "/word-rush/static/js/main.fce5e615.chunk.js"
   },
   {
     "revision": "4d361691d88489c20eb6",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/word-rush/static/js/2.6f22f56b.chunk.js"
   },
   {
-    "revision": "1c2e5f4b2f11c164c8b51d225b4bd91c",
+    "revision": "b6201ac6e81eb54d78d52555c6ce5473",
     "url": "/word-rush/index.html"
   }
 ];

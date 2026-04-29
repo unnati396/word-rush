@@ -1,13 +1,13 @@
 {
   "main.css": "/word-rush/static/css/main.3309d1d4.chunk.css",
-  "main.js": "/word-rush/static/js/main.0180e16f.chunk.js",
-  "main.js.map": "/word-rush/static/js/main.0180e16f.chunk.js.map",
+  "main.js": "/word-rush/static/js/main.fce5e615.chunk.js",
+  "main.js.map": "/word-rush/static/js/main.fce5e615.chunk.js.map",
   "runtime~main.js": "/word-rush/static/js/runtime~main.4d361691.js",
   "runtime~main.js.map": "/word-rush/static/js/runtime~main.4d361691.js.map",
   "static/js/2.6f22f56b.chunk.js": "/word-rush/static/js/2.6f22f56b.chunk.js",
   "static/js/2.6f22f56b.chunk.js.map": "/word-rush/static/js/2.6f22f56b.chunk.js.map",
   "index.html": "/word-rush/index.html",
-  "precache-manifest.784ddfab73f798dd87be3aeee49fd104.js": "/word-rush/precache-manifest.784ddfab73f798dd87be3aeee49fd104.js",
+  "precache-manifest.6ea07cd52ee5a6d7c103f99b545b8efe.js": "/word-rush/precache-manifest.6ea07cd52ee5a6d7c103f99b545b8efe.js",
   "service-worker.js": "/word-rush/service-worker.js",
   "static/css/main.3309d1d4.chunk.css.map": "/word-rush/static/css/main.3309d1d4.chunk.css.map"
 }
