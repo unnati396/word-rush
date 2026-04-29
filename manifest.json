@@ -1,0 +1,18 @@
+{
+  "short_name": "Word Rush",
+  "name": "Word Rush - Word Unscramble Game",
+  "description": "Race against the clock to unscramble words across 4 levels!",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#06101a",
+  "background_color": "#06101a",
+  "categories": ["games", "entertainment"]
+}
